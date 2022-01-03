@@ -14,8 +14,7 @@ $password = 'pw';
 
 $EmailCsvBridge = new EmailCsvBridge($username, $password, $hostname, "mail@postfach.tdl","mail@receiver.tdl");
 
-
-$path_array = $EmailCsvBridge->getSourceCSV();
+$path_array = $EmailCsvBridge->getSourceCSV("Notes");
 foreach ($path_array as $path)
 {
     $rename_array = [

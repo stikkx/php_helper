@@ -30,7 +30,7 @@ class EmailCsvBridge
 
     }
 
-    public function getSourceCSV()
+    public function getSourceCSV($move_mail = false)
     {
 
         $path_array = [];
@@ -44,6 +44,9 @@ class EmailCsvBridge
             rsort($emails);
             foreach($emails as $email_number)
             {
+                if($move_mail !== false){
+                    imap_mail_copy($inbox,$email_number,$move_mail);
+                }
                 $overview = imap_fetch_overview($inbox,$email_number,0);
                 $message = imap_fetchbody($inbox,$email_number,2);
                 $structure = imap_fetchstructure($inbox, $email_number);
@@ -120,7 +123,6 @@ class EmailCsvBridge
                             mkdir($folder);
                         }
                         $path = "./". $folder ."/". $email_number . "-" . $filename;
-                        printr($path);
                         $fp = fopen("./". $folder ."/". $email_number . "-" . $filename, "w+");
                         array_push($path_array,$path);
                         fwrite($fp, $attachment['attachment']);
