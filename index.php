@@ -6,8 +6,6 @@ use Classes\EmailCsvBridge;
 
 require "src/Classes/EmailCsvBridge.php";
 
-
-
 $hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
 $username = 'user@email.tdl';
 $password = 'pw';

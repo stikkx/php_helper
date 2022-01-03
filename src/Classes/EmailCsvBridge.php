@@ -45,7 +45,7 @@ class EmailCsvBridge
             foreach($emails as $email_number)
             {
                 if($move_mail !== false){
-                    imap_mail_copy($inbox,$email_number,$move_mail);
+                    imap_mail_move($inbox,$email_number,$move_mail);
                 }
                 $overview = imap_fetch_overview($inbox,$email_number,0);
                 $message = imap_fetchbody($inbox,$email_number,2);
