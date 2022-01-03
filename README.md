@@ -1,4 +1,4 @@
-# email_csv_bridge
+# Email CSV Bridge
 -Import mail from mailbox
 
 -Download CSV and rename header
